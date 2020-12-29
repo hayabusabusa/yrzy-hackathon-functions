@@ -9,8 +9,9 @@ const config = {
 
 const app = express();
 
-app.post('/webhook', line.middleware(config), (req, res) => {
-    functions.logger.info(req.body, {structuredData: true});
+app.post('/', line.middleware(config), (req, res) => {
+    functions.logger.info(req.body, { structuredData: true });
+    res.status(200).send()
 });
 
 export const lineBOT = functions.region('asia-northeast1').https.onRequest(app);
