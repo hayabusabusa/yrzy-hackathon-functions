@@ -10,7 +10,7 @@ const config = {
 const app = express();
 
 app.post('/', line.middleware(config), (req, res) => {
-    functions.logger.info(req.body.events.message.text);
+    functions.logger.info(req.body.events(0).message.text);
     res.status(200).send()
 });
 
