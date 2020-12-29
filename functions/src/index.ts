@@ -5,7 +5,7 @@ import * as functions from 'firebase-functions';
 // https://firebase.google.com/docs/functions/typescript
 
 // NOTE: .env 読み込み用の設定
-dotenv.config;
+dotenv.config();
 
 export const helloWorld = functions.https.onRequest((request, response) => {
   functions.logger.info("Hello logs!", {structuredData: true});
