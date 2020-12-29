@@ -1,6 +1,7 @@
 import * as functions from 'firebase-functions';
 import * as line from '@line/bot-sdk';
 import * as express from 'express';
+import { LineResponce } from './entity';
 
 const config = {
     channelSecret: functions.config().line.secret,
@@ -10,7 +11,10 @@ const config = {
 const app = express();
 
 app.post('/', line.middleware(config), (req, res) => {
-    functions.logger.info(req.body.events(0).message.text);
+    const json = JSON.stringify(req.body);
+    const response: LineResponce = JSON.parse(json);
+
+    functions.logger.info(response.events[0].message.text);
     res.status(200).send()
 });
 
