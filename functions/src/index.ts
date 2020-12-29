@@ -1,3 +1,4 @@
+import { resolve } from 'path';
 import * as dotenv from 'dotenv';
 import * as functions from 'firebase-functions';
 
@@ -6,7 +7,7 @@ import * as functions from 'firebase-functions';
 
 // NOTE: .env 読み込み用の設定
 dotenv.config({
-    path: __dirname + '/.env',
+    path: resolve(__dirname, '../.env'),
 });
 
 export const helloWorld = functions.https.onRequest((request, response) => {
