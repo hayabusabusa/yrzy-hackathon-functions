@@ -13,10 +13,9 @@ dotenv.config({
 export const helloWorld = functions.https.onRequest((request, response) => {
     const channelSecret = process.env.CHANNEL_SECRET;
     if (channelSecret === undefined) {
+        functions.logger.info(resolve(__dirname, '../.env'));
         functions.logger.info("key `CHANNEL_SECRET` is undefined in .env file.");
     }
-
-    functions.logger.info("Hello logs!", {structuredData: true});
   
     response.send(`Hello from Firebase!`);
 });
