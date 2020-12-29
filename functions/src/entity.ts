@@ -3,7 +3,7 @@ export interface LineResponce {
 }
 
 export interface LineEvent {
-    replayToken: string
+    replyToken: string
     type: string
     timestamp: number
     message: LineMessage
