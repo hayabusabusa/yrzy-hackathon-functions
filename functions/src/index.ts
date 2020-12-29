@@ -10,13 +10,17 @@ const config = {
 
 const app = express();
 
-app.post('/', line.middleware(config), async (req, res) => {
+app.post('/', line.middleware(config), (req, res, next) => {
     const json = JSON.stringify(req.body);
     const response: LineResponce = JSON.parse(json);
     const client = new line.Client(config);
 
     functions.logger.info(response.events[0].message.text);
-    await client.replyMessage(response.events[0].replyToken, {type: "text", text: response.events[0].message.text})
+    
+    (async() => {
+        await client.replyMessage(response.events[0].replyToken, { type: "text", text: response.events[0].message.text })
+    })().catch(next);
+    
     res.status(200).send()
 });
 
