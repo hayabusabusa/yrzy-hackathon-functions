@@ -1,5 +1,3 @@
-import * as line from '@line/bot-sdk';
-
 export interface LineResponce {
     events: [LineEvent]
 }
