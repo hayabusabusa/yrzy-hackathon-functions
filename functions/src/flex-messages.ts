@@ -34,7 +34,7 @@ export class ReplyFlexMessage {
                                             contents: [
                                                 {
                                                     type: "text",
-                                                    text: "コンビニ名",
+                                                    text: `${store}`,
                                                     size: "xl",
                                                     color: "#ffffff",
                                                     align: "center",
@@ -65,7 +65,7 @@ export class ReplyFlexMessage {
                                             contents: [
                                                 {
                                                     type: "text",
-                                                    text: "商品名",
+                                                    text: `${food}`,
                                                     size: "xl",
                                                     color: "#ffffff",
                                                     align: "center",
