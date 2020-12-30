@@ -29,7 +29,7 @@ app.post('/', line.middleware(config), (req, res, next) => {
         const foodName = foodDocument.data().name;
         //const foodURL = foodDocument.data().url;
 
-        const storesQuerySnapshot = await admin.firestore().collection('store').get();
+        const storesQuerySnapshot = await admin.firestore().collection('stores').get();
         const storesDocument = storesQuerySnapshot.docs[Math.floor(Math.random() * storesQuerySnapshot.docs.length)];
         const storesName = storesDocument.data().name;
 

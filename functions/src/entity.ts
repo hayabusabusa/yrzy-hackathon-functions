@@ -7,12 +7,17 @@ export interface LineEvent {
     type: string
     timestamp: number
     message: LineMessage
+    action: LineAction
 } 
 
 export interface LineMessage {
     id: string
     type: string
     text: string
+}
+
+export interface LineAction {
+    label: string
 }
 
 export interface Food {
