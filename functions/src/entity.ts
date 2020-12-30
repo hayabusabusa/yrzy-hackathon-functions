@@ -14,7 +14,7 @@ export interface LineEvent {
 export interface LineMessage {
     id: string
     type: string
-    text: line.TextMessage
+    text: string
 }
 
 export interface Food {
