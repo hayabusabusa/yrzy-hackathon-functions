@@ -69,7 +69,7 @@ export class ReplyFlexMessage {
                                                     size: "xl",
                                                     color: "#ffffff",
                                                     align: "center",
-                                                    wrap: true
+                                                    wrap: true,
                                                 },
                                             ],
                                         },
@@ -86,7 +86,7 @@ export class ReplyFlexMessage {
                     ],
                     paddingAll: "0px",
                 },
-            }
+            },
         };
 
         return flexMessage;
