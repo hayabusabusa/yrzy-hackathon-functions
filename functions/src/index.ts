@@ -25,7 +25,9 @@ app.post('/', line.middleware(config), (req, res, next) => {
     
     (async () => {
         const querySnapshot = await admin.firestore().collection('food').get();
-        const document = querySnapshot.docs[0];
+        const min = 0;
+        const max = querySnapshot.docs.length;
+        const document = querySnapshot.docs[Math.floor(Math.random() * (max - min) + min)];
         const name = document.data().name;
 
         await client.replyMessage(response.events[0].replyToken, ReplyFlexMessage.create('ファミマ', name));
