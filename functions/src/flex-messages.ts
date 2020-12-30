@@ -1,7 +1,7 @@
 import { FlexMessage } from '@line/bot-sdk';
 
 export class ReplyFlexMessage {
-    
+
     static create(store: string, food: string): FlexMessage {
         const flexMessage: FlexMessage = {
             type: "flex",
@@ -14,25 +14,11 @@ export class ReplyFlexMessage {
                     contents: [
                         {
                             type: "image",
-                            url: "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip3.jpg",
+                            url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png",
                             size: "full",
                             aspectMode: "cover",
                             aspectRatio: "1:1",
                             gravity: "center",
-                        },
-                        {
-                            type: "box",
-                            layout: "vertical",
-                            contents: [],
-                            position: "absolute",
-                            background: {
-                                type: "linearGradient",
-                                angle: "180deg",
-                                endColor: "#FFFFFF",
-                                startColor: "#FFFFFF",
-                            },
-                            width: "100%",
-                            height: "30%",
                         },
                         {
                             type: "box",
@@ -47,14 +33,11 @@ export class ReplyFlexMessage {
                                             layout: "baseline",
                                             contents: [
                                                 {
-                                                    type: "icon",
-                                                    url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png",
-                                                },
-                                                {
                                                     type: "text",
-                                                    text: "セブンイレブン",
+                                                    text: "コンビニ名",
                                                     size: "xl",
-                                                    color: "#000000",
+                                                    color: "#ffffff",
+                                                    align: "center",
                                                     offsetStart: "md",
                                                 },
                                             ],
@@ -63,7 +46,7 @@ export class ReplyFlexMessage {
                                 },
                             ],
                             position: "absolute",
-                            offsetTop: "5%",
+                            offsetTop: "20%",
                             offsetStart: "0px",
                             offsetEnd: "0px",
                             paddingAll: "5%",
@@ -82,10 +65,11 @@ export class ReplyFlexMessage {
                                             contents: [
                                                 {
                                                     type: "text",
-                                                    text: "パン",
+                                                    text: "商品名",
                                                     size: "xl",
                                                     color: "#ffffff",
                                                     align: "center",
+                                                    wrap: true
                                                 },
                                             ],
                                         },
@@ -94,7 +78,7 @@ export class ReplyFlexMessage {
                                 },
                             ],
                             position: "absolute",
-                            offsetTop: "60%",
+                            offsetTop: "50%",
                             offsetStart: "0%",
                             offsetEnd: "0%",
                             offsetBottom: "0%",
@@ -102,7 +86,7 @@ export class ReplyFlexMessage {
                     ],
                     paddingAll: "0px",
                 },
-            },
+            }
         };
 
         return flexMessage;
