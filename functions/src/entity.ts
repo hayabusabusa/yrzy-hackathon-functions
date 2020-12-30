@@ -1,3 +1,5 @@
+import * as line from '@line/bot-sdk';
+
 export interface LineResponce {
     events: [LineEvent]
 }
@@ -12,5 +14,10 @@ export interface LineEvent {
 export interface LineMessage {
     id: string
     type: string
-    text: string
+    text: line.TextMessage
+}
+
+export interface Food {
+    name: string
+    genre: string
 }

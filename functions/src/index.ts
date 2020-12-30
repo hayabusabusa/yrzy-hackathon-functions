@@ -1,7 +1,10 @@
 import * as functions from 'firebase-functions';
+import * as admin from 'firebase-admin';
 import * as line from '@line/bot-sdk';
 import * as express from 'express';
 import { LineResponce } from './entity';
+
+admin.initializeApp();
 
 const config = {
     channelSecret: functions.config().line.secret,
@@ -17,8 +20,12 @@ app.post('/', line.middleware(config), (req, res, next) => {
 
     functions.logger.info(response.events[0].message.text);
     
-    (async() => {
-        await client.replyMessage(response.events[0].replyToken, { type: "text", text: response.events[0].message.text })
+    (async () => {
+        const querySnapshot = await admin.firestore().collection('food').get();
+        const document = querySnapshot.docs[0];
+        const name = document.data().name;
+        
+        await client.replyMessage(response.events[0].replyToken, { type: "text", text: `${name} を食べろ` })
     })().catch(next);
     
     res.status(200).send()
