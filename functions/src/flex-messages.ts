@@ -18,7 +18,7 @@ export class ReplyFlexMessage {
                             size: "full",
                             aspectMode: "cover",
                             aspectRatio: "1:1",
-                            gravity: "center"
+                            gravity: "center",
                         },
                         {
                             type: "box",
@@ -29,10 +29,10 @@ export class ReplyFlexMessage {
                                 type: "linearGradient",
                                 angle: "180deg",
                                 endColor: "#FFFFFF",
-                                startColor: "#FFFFFF"
+                                startColor: "#FFFFFF",
                             },
                             width: "100%",
-                            height: "30%"
+                            height: "30%",
                         },
                         {
                             type: "box",
@@ -48,25 +48,25 @@ export class ReplyFlexMessage {
                                             contents: [
                                                 {
                                                     type: "icon",
-                                                    url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                                                    url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png",
                                                 },
                                                 {
                                                     type: "text",
                                                     text: "セブンイレブン",
                                                     size: "xl",
                                                     color: "#000000",
-                                                    offsetStart: "md"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
+                                                    offsetStart: "md",
+                                                },
+                                            ],
+                                        },
+                                    ],
+                                },
                             ],
                             position: "absolute",
                             offsetTop: "5%",
                             offsetStart: "0px",
                             offsetEnd: "0px",
-                            paddingAll: "5%"
+                            paddingAll: "5%",
                         },
                         {
                             type: "box",
@@ -85,24 +85,24 @@ export class ReplyFlexMessage {
                                                     text: "パン",
                                                     size: "xl",
                                                     color: "#ffffff",
-                                                    align: "center"
-                                                }
-                                            ]
-                                        }
+                                                    align: "center",
+                                                },
+                                            ],
+                                        },
                                     ],
-                                    spacing: "xs"
-                                }
+                                    spacing: "xs",
+                                },
                             ],
                             position: "absolute",
                             offsetTop: "60%",
                             offsetStart: "0%",
                             offsetEnd: "0%",
-                            offsetBottom: "0%"
-                        }
+                            offsetBottom: "0%",
+                        },
                     ],
-                    paddingAll: "0px"
-                }
-            }
+                    paddingAll: "0px",
+                },
+            },
         };
 
         return flexMessage;
