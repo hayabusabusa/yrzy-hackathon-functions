@@ -2,7 +2,9 @@ import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import * as line from '@line/bot-sdk';
 import * as express from 'express';
+
 import { LineResponce } from './entity';
+import { ReplyFlexMessage } from './flex-messages';
 
 admin.initializeApp();
 
@@ -11,12 +13,13 @@ const config = {
     channelAccessToken: functions.config().line.token,
 };
 
+const client = new line.Client(config);
 const app = express();
 
 app.post('/', line.middleware(config), (req, res, next) => {
     const json = JSON.stringify(req.body);
     const response: LineResponce = JSON.parse(json);
-    const client = new line.Client(config);
+    
 
     functions.logger.info(response.events[0].message.text);
     
@@ -25,7 +28,7 @@ app.post('/', line.middleware(config), (req, res, next) => {
         const document = querySnapshot.docs[0];
         const name = document.data().name;
 
-        await client.replyMessage(response.events[0].replyToken, { type: "text", text: `${name} を食べろ` })
+        await client.replyMessage(response.events[0].replyToken, ReplyFlexMessage.create('ファミマ', name));
     })().catch(next);
     
     res.status(200).send()
