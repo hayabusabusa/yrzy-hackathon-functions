@@ -24,7 +24,7 @@ app.post('/', line.middleware(config), (req, res, next) => {
         const querySnapshot = await admin.firestore().collection('food').get();
         const document = querySnapshot.docs[0];
         const name = document.data().name;
-        
+
         await client.replyMessage(response.events[0].replyToken, { type: "text", text: `${name} を食べろ` })
     })().catch(next);
     
@@ -32,8 +32,3 @@ app.post('/', line.middleware(config), (req, res, next) => {
 });
 
 export const lineBOT = functions.region('asia-northeast1').https.onRequest(app);
-
-export const helloWorld = functions.https.onRequest((request, response) => {
-    functions.logger.info("Hello World");
-    response.send("first tranning");
-});
