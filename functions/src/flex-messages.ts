@@ -2,7 +2,7 @@ import { FlexMessage } from '@line/bot-sdk';
 
 export class ReplyFlexMessage {
 
-    static create(store: string, food: string): FlexMessage {
+    static create(store: string, food: string, url: string): FlexMessage {
         const flexMessage: FlexMessage = {
             type: "flex",
             altText: `${store} の ${food} になりました`,
@@ -14,7 +14,7 @@ export class ReplyFlexMessage {
                     contents: [
                         {
                             type: "image",
-                            url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_2_restaurant.png",
+                            url: url,
                             size: "full",
                             aspectMode: "cover",
                             aspectRatio: "1:1",
