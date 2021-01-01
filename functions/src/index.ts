@@ -21,15 +21,12 @@ app.post('/', line.middleware(config), (req, res, next) => {
     const response: LineResponce = JSON.parse(json);
 
     (async () => {
-        switch (response.events[0].message.text) {
-            case "和食":
-            case "洋食":
-            case "中華":
-                var foodQuerySnapshot = await admin.firestore().collection('food').where('genre', '==', response.events[0].message.text).get();
-                break;
-            default:
-                var foodQuerySnapshot = await admin.firestore().collection('food').get();
-                break;
+        const genre = response.events[0].message.text;
+        let foodQuerySnapshot: FirebaseFirestore.DocumentData;
+        if (genre === "和食" || genre === "中華" || genre === "洋食") {
+            foodQuerySnapshot = await admin.firestore().collection('food').where('genre', '==', genre).get();
+        } else {
+            foodQuerySnapshot = await admin.firestore().collection('food').get();
         }
 
         const foodDocument = foodQuerySnapshot.docs[Math.floor(Math.random() * foodQuerySnapshot.docs.length)];
