@@ -43,4 +43,4 @@ app.post('/', line.middleware(config), (req, res, next) => {
     res.status(200).send()
 });
 
-export const lineBOT = functions.region('asia-northeast1').https.onRequest(app);
+export const lineBOT = functions.region('asia-northeast1').runWith({memory: '128MB', timeoutSeconds: 30}).https.onRequest(app);
